@@ -20,7 +20,7 @@ data "terraform_remote_state" "vc-outputs" {
   }
 }
 
-output "test "{
+output "test" {
   value = data.terraform_remote_state.vc-outputs
 }
 
