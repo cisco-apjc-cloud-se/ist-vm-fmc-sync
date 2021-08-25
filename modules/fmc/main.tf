@@ -50,24 +50,43 @@ resource "fmc_network_group_objects" "host-grp-a" {
   name          = "IST-HOST-GROUP-A"
   description   = "Host Server Group A - Terraform Managed"
 
-  dynamic "objects" {
+  # dynamic "objects" {
+  #   for_each = fmc_host_objects.host-grp-a
+  #   content {
+  #     id = objects.value["id"]
+  #     type = objects.value["type"]
+  #   }
+  # }
+
+  dynamic "literals" {
     for_each = fmc_host_objects.host-grp-a
     content {
-      id = objects.value["id"]
+      value = objects.value["value"]
       type = objects.value["type"]
     }
   }
+
+
 }
 
 resource "fmc_network_group_objects" "host-grp-b" {
   name          = "IST-HOST-GROUP-B"
   description   = "Host Server Group B - Terraform Managed"
 
-  dynamic "objects" {
+  # dynamic "objects" {
+  #   for_each = fmc_host_objects.host-grp-b
+  #   content {
+  #     id = objects.value["id"]
+  #     type = objects.value["type"]
+  #   }
+  # }
+
+  dynamic "literals" {
     for_each = fmc_host_objects.host-grp-b
     content {
-      id = objects.value["id"]
+      value = objects.value["value"]
       type = objects.value["type"]
     }
   }
+
 }
