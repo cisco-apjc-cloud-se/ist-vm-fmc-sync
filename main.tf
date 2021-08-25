@@ -20,9 +20,9 @@ data "terraform_remote_state" "vc-mod" {
   }
 }
 
-output "test" {
-  value = data.terraform_remote_state.vc-mod
-}
+# output "test" {
+#   value = data.terraform_remote_state.vc-mod
+# }
 
 ### Nested Modules ###
 
