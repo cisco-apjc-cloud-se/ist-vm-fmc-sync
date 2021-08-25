@@ -9,7 +9,7 @@ terraform {
 }
 
 ### Remote Shared State ###
-data "terraform_remote_state" "vc-outputs" {
+data "terraform_remote_state" "vc-mod" {
   backend = "remote"
 
   config = {
@@ -21,7 +21,7 @@ data "terraform_remote_state" "vc-outputs" {
 }
 
 output "test" {
-  value = data.terraform_remote_state.vc-outputs
+  value = data.terraform_remote_state.vc-mod
 }
 
 ### Nested Modules ###
@@ -46,16 +46,16 @@ output "test" {
 #   # depends_on = [module.dcnm]
 # }
 
-# ## Firewpower Management Center (FMC) Module
-# module "fmc" {
-#   source = "./modules/fmc"
-#
-#   fmc_user      = var.fmc_user
-#   fmc_password  = var.fmc_password
-#   fmc_server    = var.fmc_server
-#   vm_group_a    = data.terraform_remote_state.vc-outputs.vm_group_a
-#   vm_group_b    = data.terraform_remote_state.vc-outputs.vm_group_b
-#
-#   # depends_on = [module.vcenter]
-#
-# }
+## Firewpower Management Center (FMC) Module
+module "fmc" {
+  source = "./modules/fmc"
+
+  fmc_user      = var.fmc_user
+  fmc_password  = var.fmc_password
+  fmc_server    = var.fmc_server
+  vm_group_a    = data.terraform_remote_state.vc-mod.outputs.vm_group_a
+  vm_group_b    = data.terraform_remote_state.vc-mod.outputs.vm_group_b
+
+  # depends_on = [module.vcenter]
+
+}
