@@ -61,8 +61,8 @@ resource "fmc_network_group_objects" "host-grp-a" {
   dynamic "literals" {
     for_each = fmc_host_objects.host-grp-a
     content {
-      value = objects.value["value"]
-      type = objects.value["type"]
+      value = literals.value["value"]
+      type = literals.value["type"]
     }
   }
 
@@ -84,8 +84,8 @@ resource "fmc_network_group_objects" "host-grp-b" {
   dynamic "literals" {
     for_each = fmc_host_objects.host-grp-b
     content {
-      value = objects.value["value"]
-      type = objects.value["type"]
+      value = literals.value["value"]
+      type = literals.value["type"]
     }
   }
 
