@@ -20,6 +20,10 @@ data "terraform_remote_state" "vc-outputs" {
   }
 }
 
+output "test "{
+  value = data.terraform_remote_state.vc-outputs
+}
+
 ### Nested Modules ###
 
 # ## VMware vCenter Module
@@ -42,16 +46,16 @@ data "terraform_remote_state" "vc-outputs" {
 #   # depends_on = [module.dcnm]
 # }
 
-## Firewpower Management Center (FMC) Module
-module "fmc" {
-  source = "./modules/fmc"
-
-  fmc_user      = var.fmc_user
-  fmc_password  = var.fmc_password
-  fmc_server    = var.fmc_server
-  vm_group_a    = data.terraform_remote_state.vc-outputs.vm_group_a
-  vm_group_b    = data.terraform_remote_state.vc-outputs.vm_group_b
-
-  # depends_on = [module.vcenter]
-
-}
+# ## Firewpower Management Center (FMC) Module
+# module "fmc" {
+#   source = "./modules/fmc"
+#
+#   fmc_user      = var.fmc_user
+#   fmc_password  = var.fmc_password
+#   fmc_server    = var.fmc_server
+#   vm_group_a    = data.terraform_remote_state.vc-outputs.vm_group_a
+#   vm_group_b    = data.terraform_remote_state.vc-outputs.vm_group_b
+#
+#   # depends_on = [module.vcenter]
+#
+# }
