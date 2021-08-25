@@ -9,7 +9,7 @@ terraform {
 }
 
 ### Remote Shared State ###
-data "terraform_remote_state" "vpc" {
+data "terraform_remote_state" "vc-outputs" {
   backend = "remote"
 
   config = {
