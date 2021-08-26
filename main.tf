@@ -53,8 +53,8 @@ module "fmc" {
   fmc_user      = var.fmc_user
   fmc_password  = var.fmc_password
   fmc_server    = var.fmc_server
-  vm_group_a    = data.terraform_remote_state.vc-mod.outputs.vm_group_a
-  vm_group_b    = data.terraform_remote_state.vc-mod.outputs.vm_group_b
+  vm_group_a    = try(data.terraform_remote_state.vc-mod.outputs.vm_group_a, {})
+  vm_group_b    = try(data.terraform_remote_state.vc-mod.outputs.vm_group_b, {})
 
   # depends_on = [module.vcenter]
 
