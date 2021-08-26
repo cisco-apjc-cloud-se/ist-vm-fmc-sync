@@ -47,6 +47,8 @@ resource "fmc_host_objects" "host-grp-b" {
 
 
 resource "fmc_network_group_objects" "host-grp-a" {
+  count         = length(local.vm_group_a) > 0 ? 1 : 0
+
   name          = "IST-HOST-GROUP-A"
   description   = "Host Server Group A - Terraform Managed"
 
@@ -70,6 +72,8 @@ resource "fmc_network_group_objects" "host-grp-a" {
 }
 
 resource "fmc_network_group_objects" "host-grp-b" {
+  count         = length(local.vm_group_b) > 0 ? 1 : 0
+
   name          = "IST-HOST-GROUP-B"
   description   = "Host Server Group B - Terraform Managed"
 
