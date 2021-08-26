@@ -15,7 +15,7 @@ data "terraform_remote_state" "vc-mod" {
   config = {
     organization = "mel-ciscolabs-com"
     workspaces = {
-      name = "ist-challenge-dcn"
+      name = "ist-dcn-vcenter"
     }
   }
 }
