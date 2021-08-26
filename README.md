@@ -37,7 +37,7 @@ https://github.com/cisco-apjc-cloud-se/ist-vm-fmc-sync
 
 
 ## Steps to Deploy Use Case
-1.	Complete the setup for the primary "ist-dcn-vcenter" workspace.  This includes setting up Intersight Serviced for Terraform.
+1.	Complete the setup for the primary "ist-dcn-vcenter" workspace.  This includes setting up Intersight Service for Terraform (IST).
 2.	In Terraform Cloud for Business, create a new Terraform Workspace and associate to this GitHub repository.
 
 ![TFCB Agent Image](/images/tfcb-workspace.png)
@@ -53,6 +53,11 @@ https://github.com/cisco-apjc-cloud-se/ist-vm-fmc-sync
 5.  In Terraform Cloud for Business, under Settings, configure this workspace to be triggered by the primary "ist-dcn-vcenter" workspace.  
 
 ![TFCB Run Trigger Image](/images/tfcb-trigger.png)
+
+6.  In Terraform Cloud for Business, in the 1st workspace (ist-dcn-vcenter) under Settings, configure this workspace to share its state file with this new workspace (ist-vm-fmc-sync).  
+
+![TFCB Share State Image](/images/tfcb-share.png)
+
 
 ## Execute Deployment
 Any successful runs in the primary "ist-dcn-vcenter" workspace will trigger this workspace to run.  Any future changes to pushed to thist GitHub repository or the primary workspace repository will automatically trigger a new plan deployment.
