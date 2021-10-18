@@ -1,5 +1,7 @@
 # Integrated DC Network, Infrastructure & Security Automation - Part 2
 
+[![published](https://static.production.devnetcloud.com/codeexchange/assets/images/devnet-published.svg)](https://developer.cisco.com/codeexchange/github/repo/cisco-apjc-cloud-se/ist-vcenter-dcnm)
+
 ## Overview
 This repository is intended for use as 2nd, linked Terraform workspace.  The 1st primary workspace (using the ist-dcn-vcenter GitHub repository) will share its output state to this workspace and be configured to trigger this workspace to run.
 
